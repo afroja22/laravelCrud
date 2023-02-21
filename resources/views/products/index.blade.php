@@ -3,10 +3,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="pull-left">
+            <div class="my-3 text-center">
                 <h2>Bazaar - An E-Commerce site</h2>
             </div>
-            <div class="pull-right">
+            <div class="my-3">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
             </div>
         </div>
@@ -37,14 +37,14 @@
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                    <a class="btn btn-success" href="{{ route('products.show',$product->id) }}"><i class="fa-solid fa-circle-info fa-lg"></i></a>
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-warning" href="{{ route('products.edit',$product->id) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
 
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash fa-lg"></i></button>
                 </form>
             </td>
         </tr>
@@ -52,5 +52,6 @@
     </table>
 
     {{ $products->links() }}
+    @include("products.product_js")
 
 @endsection
